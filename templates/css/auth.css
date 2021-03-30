@@ -1,0 +1,296 @@
+:root {
+  --primary-color: #3B41E3;
+  --secondary-color: #FF872E;
+  --green-color: #1ABC9C;
+  --white-color: #fff;
+  --semi-white-color: #f8f5f1;
+  --black-color: #333;
+  --primary-lighter-color: #575DFF;
+
+  --highlight-font-size: 24px;
+
+  --box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+  --border: 1px solid rgba(0, 0, 0, .3);
+  --border-primary: 1px solid var(--primary-color);
+  --border-radius: 16px;
+  --border-radius-big: 24px;
+  --border-radius-extra: 36px;
+  --border-radius-form: 18px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+a.link-primary {
+  color: var(--primary-color);
+}
+
+a.link-secondary {
+  color: var(--secondary-color);
+}
+
+a.link-primary:hover, a.link-secondary:hover {
+  filter: brightness(120%);
+}
+
+.text-highlight {
+  color: var(--secondary-color);
+}
+
+.shadowed {
+  box-shadow: var(--box-shadow);
+}
+
+.border-none {
+  border: none !important;
+}
+
+.btn-gofund {
+  border-radius: 25px;
+  color: var(--white-color);
+}
+
+.btn-gofund.primary {
+  background-color: var(--primary-color);
+}
+
+.btn-gofund.secondary {
+  background-color: var(--secondary-color);
+}
+
+.btn-gofund.outline {
+  border-color: var(--white-color);
+}
+
+.btn-gofund.outline.inverse {
+  border-color: var(--primary-color);
+  color: var(--black-color);
+}
+
+.btn-gofund.slim {
+  padding: 4px 28px !important;
+}
+
+.btn-gofund.extra-slim {
+  padding: 4px 64px !important;
+}
+
+.form-gofund {
+  border-radius: var(--border-radius-form);
+  line-height: inherit;
+}
+
+.form-gofund-lg {
+  border-radius: var(--border-radius-big);
+  line-height: inherit;
+}
+
+.form-gofund::placeholder, .form-gofund-lg::placeholder {
+  font-size: 16px;
+  line-height: inherit;
+  vertical-align: middle;
+}
+
+.ava-thumbnail {
+  display: inline-block;
+  width: 90px;
+  border: var(--border-primary);
+  overflow: hidden;
+  padding: 8px;
+  margin-right: 12px;
+  background-color: var(--white-color);
+}
+
+.ava-thumbnail > img {
+  width: 72px;
+}
+
+.ava-thumbnail.small {
+  width: 74px;
+}
+
+.ava-thumbnail.small > img {
+  width: 56px;
+}
+
+.ava-thumbnail > .ava-action {
+  position: absolute;
+  width: 25px;
+  margin-top: 48px;
+  margin-left: -12px;
+}
+
+.circles-wrapper {
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--primary-lighter-color);
+  border-radius: 50%;
+}
+
+.circle.layer-1 {
+  width: 664px;
+  height: 664px;
+}
+
+.circle.layer-2 {
+  width: 600px;
+  height: 600px;
+}
+
+.circle.layer-3 {
+  width: 540px;
+  height: 540px;
+}
+
+.circle.layer-4 {
+  width: 480px;
+  height: 480px;
+}
+
+.circle.layer-5 {
+  width: 420px;
+  height: 420px;
+}
+
+.circle.layer-6 {
+  width: 360px;
+  height: 360px;
+}
+
+/* Custom */
+.circles-wrapper.auth {
+  top: 0;
+  right: 0;
+}
+
+.circles-wrapper.auth > .circle.layer-1 {
+  margin-top: -200px;
+  margin-right: -200px;
+}
+
+/* Upload Avatar */
+.circles-wrapper.upload-avatar {
+  top: 50%;
+  left: 50%;
+  transform: translate(-332px, -332px);
+}
+
+/* ============================================================================================= */
+/* ============================================================================================= */
+/* ============================================================================================= */
+
+.form-container, .message-container {
+  display: flex;
+  position: relative;
+  z-index: 0;
+}
+
+.form-container {
+  background-color: var(--primary-color);
+}
+
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.side-image {
+  background-size: cover;
+  height: 100vh;
+  width: 45%;
+  border-top-right-radius: var(--border-radius-extra);
+  border-bottom-right-radius: var(--border-radius-extra);
+}
+
+.side-image.login {
+  background-image: url("./../img/bg-login.jpg");
+}
+
+.side-image.register {
+  background-image: url("./../img/bg-register.jpg");
+}
+
+.auth-form {
+  color: var(--white-color);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-container {
+  width: 35%;
+}
+
+.auth-container > h1 {
+  font-size: 34px;
+  margin-bottom: 28px;
+}
+
+.auth-container > .auth-field {
+  margin-bottom: 28px;
+}
+
+.auth-container > button {
+  margin-bottom: 28px;
+}
+
+.avatar-upload-wrapper, .message-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 24%;
+  margin: auto;
+}
+
+.avatar-upload-wrapper {
+  color: var(--white-color);
+}
+
+.message-wrapper {
+  color: var(--black-color);
+}
+
+.avatar-upload-wrapper > .ava-thumbnail {
+  margin-right: 0;
+  margin-bottom: 24px;
+}
+
+.avatar-upload-wrapper > h1, .message-wrapper > h1{
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.avatar-upload-wrapper > h2{
+  font-size: 20px;
+  font-weight: 200;
+  margin-bottom: 28px;
+}
+
+.avatar-upload-wrapper > .btn-gofund, .message-wrapper > .btn-gofund {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  margin-bottom: 12px;
+}
+
+.message-wrapper > .img-message {
+  margin-bottom: 48px;
+}
+
+.message-wrapper > p {
+  margin-bottom: 48px;
+}
