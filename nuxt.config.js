@@ -17,12 +17,16 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap' },
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/css/cosmicgarden.css',
+    '~/assets/css/gofund.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -40,7 +44,17 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
+  
+  auth: {
+    // Options
+  },
+
+  axios: {
+    baseURL: 'http://localhost:8080'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
