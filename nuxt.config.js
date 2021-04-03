@@ -1,4 +1,13 @@
+import hooks from './hooks'
+
 export default {
+  // Redirecting /dashboard to /dashboard/projects with hooks
+  hooks: hooks({
+    router: {
+      dashboard: '/dashboard/projects',
+    }
+  }),
+
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
