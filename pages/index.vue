@@ -31,8 +31,8 @@
               <!-- Project thumbnail -->
               <div class="col-6" style="position:relative;z-index:1;">
                 <div class="gf-project-card" style="box-shadow: 6px 8px 18px rgba(0, 0, 0, 0.1);">
-                  <img class="project-image" src="~/assets/img/statics/project-image.jpg" alt="">
-                  <div class="project-title">Worldwide Uno Championship</div>
+                  <img style="cursor:pointer;" @click="$router.push(`/projects/1`)" class="project-image" src="/images/project-image.jpg" alt="">
+                  <div class="project-title"><NuxtLink :to="`/projects/1`">Worldwide Uno Championship</NuxtLink></div>
                   <div class="project-highlight">Creating robotic hand for better movement.</div>
                   <div class="project-progress progress mb-2">
                     <div class="progress-bar progress-bar-striped" style="width:40%"></div>
@@ -90,14 +90,14 @@
                       "
                       class="d-flex flex-column"
                     >
-                      <img src="~/assets/img/statics/ava-1.jpg" class="cg-ava mod-xs mod-bordered mod-o cl-primary mx-auto mb-3">
+                      <img src="/images/ava-1.jpg" class="cg-ava mod-xs mod-bordered mod-o cl-primary mx-auto mb-3">
                       <div class="text-center" style="font-size:16px;font-weight:400;">Julia Keeva</div>
                       <div class="text-center mb-3" style="font-size:13px;font-weight:300;">Project Manager</div>
                       <div class="d-flex justify-content-around mb-2">
                         <img 
                           v-for="star in 5" :key="star"
                           style="width:18px;"
-                          src="~assets/img/statics/star.svg" alt=""
+                          src="/images/star.svg" alt=""
                         >
                       </div>
                       <div style="font-size:13px;font-weight:300;" class="d-flex justify-content-between">
@@ -124,23 +124,23 @@
         </div>
         <div class="row">
           <div class="col d-flex justify-content-center">
-            <img src="~/assets/img/statics/line-step.svg" alt="">
+            <img src="/images/line-step.svg" alt="">
           </div>
         </div>
         <div class="row">
           <div class="col d-flex justify-content-between">
             <div class="gf-instruction-step">
-              <img class="step-image" src="~/assets/img/statics/step-1-illustration.svg" alt="">
+              <img class="step-image" src="/images/step-1-illustration.svg" alt="">
               <div class="step-title">Sign Up</div>
               <div class="step-description">Daftarkan akun Anda dan mulailah mendanai project</div>
             </div>
             <div class="gf-instruction-step" style="margin-top:-96px;">
-              <img class="step-image" src="~/assets/img/statics/step-2-illustration.svg" alt="">
+              <img class="step-image" src="/images/step-2-illustration.svg" alt="">
               <div class="step-title">Buka Project</div>
               <div class="step-description">Pilih beberapa ide project, dan mulailah mendanai</div>
             </div>
             <div class="gf-instruction-step" style="margin-top:-256px;">
-              <img class="step-image" src="~/assets/img/statics/step-3-illustration.svg" alt="">
+              <img class="step-image" src="/images/step-3-illustration.svg" alt="">
               <div class="step-title">Jalankan</div>
               <div class="step-description">Saatnya buat mimpi Anda menjadi nyata</div>
             </div>
@@ -158,17 +158,17 @@
         </div>
         <div class="row">
           <!-- Project thumbnail -->
-          <div v-for="project in 6" :key="project" class="col-4">
+          <div v-for="campaign in campaigns" :key="campaign.id" class="col-4">
             <div class="gf-project-card" style="border: 1px solid var(--cl-lighter-gray);">
-              <img class="project-image" src="~/assets/img/statics/project-image.jpg" alt="">
-              <div class="project-title">Worldwide Uno Championship</div>
-              <div class="project-highlight">Creating robotic hand for better movement.</div>
+              <img style="cursor:pointer;" class="project-image" :src="`${$axios.defaults.baseURL}/images/campaigns/${campaign.image}`" alt="" @click="$router.push(`/projects/${campaign.id}`)">
+              <div class="project-title"><NuxtLink :to="`/projects/${campaign.id}`">{{ campaign.name }}</NuxtLink></div>
+              <div class="project-highlight">{{ campaign.highlight }}</div>
               <div class="project-progress progress mb-2">
-                <div class="progress-bar progress-bar-striped" style="width:40%"></div>
+                <div class="progress-bar progress-bar-striped" :style="`width:${campaign.current_amount / campaign.goal_amount * 100}%`"></div>
               </div>
               <div class="project-detail">
-                <span>40%</span>
-                <span>Rp 100.000.000</span>
+                <span>{{ (campaign.current_amount / campaign.goal_amount * 100).toFixed(2) }}%</span>
+                <span>Rp {{ new Intl.NumberFormat('id-ID').format(campaign.goal_amount) }}</span>
               </div>
             </div>
           </div>
@@ -183,7 +183,7 @@
         <div style="width:420px;font-size:28px;font-weight:500">Lihat apa yang dikatakan oleh klien kami.</div>
         <div class="row">
           <div class="col-3 text-right">
-            <img src="~/assets/img/statics/testimonial-line.svg" alt="" >
+            <img src="/images/testimonial-line.svg" alt="" >
           </div>
           <div class="col-9">
             <div class="mt-5 mb-5">
@@ -196,9 +196,9 @@
               <div style="font-size:24px;font-weight:300;">Project Manager</div>
             </div>
             <div>
-              <img src="~/assets/img/statics/ava-1.jpg" class="mr-3 cg-ava mod-xs mod-bordered mod-o cl-primary">
-              <img src="~/assets/img/statics/ava-2.jpg" class="mr-3 cg-ava mod-xs mod-bordered mod-o cl-primary">
-              <img src="~/assets/img/statics/ava-3.jpg" class="mr-3 cg-ava mod-xs mod-bordered mod-o cl-primary">
+              <img src="/images/ava-1.jpg" class="mr-3 cg-ava mod-xs mod-bordered mod-o cl-primary">
+              <img src="/images/ava-2.jpg" class="mr-3 cg-ava mod-xs mod-bordered mod-o cl-primary">
+              <img src="/images/ava-3.jpg" class="mr-3 cg-ava mod-xs mod-bordered mod-o cl-primary">
             </div>
           </div>
         </div>
@@ -218,5 +218,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  auth: false,
+  layout: 'basic',
+  async asyncData({ $axios }) {
+    const campaigns = await $axios.get('/api/v1/campaigns')
+
+    return { campaigns: campaigns.data.data }
+  }
+}
 </script>

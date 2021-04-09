@@ -12,6 +12,14 @@ a.link-secondary {
   color: var(--cl-secondary);
 }
 
+a.link-gray {
+  color: var(--cl-gray);
+}
+
+a.link-gray.mod-active {
+  color: var(--cl-black);
+}
+
 /*? Section margins */
 .gf-jumbotron {
   margin-bottom:275px;
@@ -83,7 +91,7 @@ section.section-feedback {
   background-color: var(--cl-primary);
   color: var(--cl-white);
   height: 527px;
-  margin-top: -137px;
+  margin-top: -147px;
   padding-top: calc(4rem + 135px);
   border-radius: 0;
   position: relative;
@@ -182,7 +190,7 @@ section.section-feedback {
 .gf-project-perks > ul {
   padding-left: 22px;
   list-style: none;
-  list-style-image: url("~/assets/img/statics/icon-checklist.svg");
+  list-style-image: url("/images/icon-checklist.svg");
   margin-bottom: 0;
   font-size: 14px;
 }
@@ -269,9 +277,15 @@ section.section-feedback {
 /*! FORM ========================================================================== */
 /*! =============================================================================== */
 
-input.gf-form {
+textarea.gf-form, input.gf-form {
   border-radius: 32px;
   font-size: 16px;
   height: 52px;
   padding-left: 24px;
+}
+
+textarea.gf-form {
+  height: 480px;
+  padding: 16px 24px;
+  line-height: 28px;
 }

@@ -12,10 +12,10 @@
       style="display:none;"
       @change="prepareProfileUpload"
     >
-    <div style="font-size:36px;font-weight:500;">Hi, Julia</div>
+    <div style="font-size:36px;font-weight:500;">Hi, {{ $auth.user.name }}</div>
     <div class="mb-4" style="font-size:20px;font-weight:300;">Please upload you profile picture</div>
-    <button class="cg-btn mod-form cl-secondary mb-2">Sign Up Now</button>
-    <a href="#" class="cg-btn mod-form mod-outline cl-hollow">Skip</a>
+    <button @click="updateAvatar" class="cg-btn mod-form cl-secondary mb-2">Sign Up Now</button>
+    <NuxtLink to="/dashboard/projects" class="cg-btn mod-form mod-outline cl-hollow">Skip</NuxtLink>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
   layout: 'full-blue',
   data() {
     return {
-      imgPreview: require('~/assets/img/statics/avatar.jpg')
+      imgPreview: '/images/avatar.jpg'
     }
   },
   methods: {
@@ -34,6 +34,21 @@ export default {
     prepareProfileUpload(e) {
       const image = e.target.files[0]
       this.imgPreview = URL.createObjectURL(image)
+    },
+    async updateAvatar() {
+      const form = new FormData()
+      form.append('avatar', this.$refs.profileUpload.files[0])
+      
+      const axiosHeaders = { 'Content-Type': 'multipart/form-data' }
+
+      try {
+        await this.$axios.post('/api/v1/update-avatar', form, axiosHeaders)
+        await this.$auth.fetchUser()
+
+        this.$router.push('/dashboard/projects')
+      } catch (error) {
+        console.log(error.response);
+      }
     }
   }
 }

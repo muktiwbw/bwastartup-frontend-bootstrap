@@ -15,11 +15,7 @@ export const mutations = {
 }
 
 export const actions = {
-  setFormData({ commit, rootGetters }, form) {
-    const staticPath = rootGetters['paths/GET_STATIC']
-
-    form.background = `${staticPath}/${form.background}`
-    console.log(form);
+  setFormData({ commit }, form) {
     commit('SET_FORM_DATA', form)
   }
 }

@@ -9,10 +9,8 @@ export const mutations = {
 }
 
 export const actions = {
-  setDisplayImage({ commit, rootGetters }, displayImage) {
-    const staticPath = rootGetters['paths/GET_STATIC']
-    
-    commit('SET_DISPLAY_IMAGE', `${staticPath}/${displayImage}`)
+  setDisplayImage({ commit }, displayImage) {    
+    commit('SET_DISPLAY_IMAGE', displayImage)
   } 
 }
 

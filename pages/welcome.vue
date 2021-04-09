@@ -8,8 +8,10 @@
 
 <script>
 export default {
+  auth: false,
   layout: 'resolve',
   mounted() {
+    console.log(this.$router.assetPath);
     this.$store.dispatch('resolve-page/setDisplayImage', 'success-illustration.svg')
   }
 }

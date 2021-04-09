@@ -31,10 +31,11 @@
   --im-md: 144px;
   --im-sm: 84px;
   --im-xs: 64px;
+  --im-ty: 36px;
   
   /*? Highlight icons */
-  --ic-select: url("~assets/img/statics/icon-checklist-white.svg");
-  --ic-edit: url("~assets/img/statics/icon-pencil.svg");
+  --ic-select: url("/images/icon-checklist-white.svg");
+  --ic-edit: url("/images/icon-pencil.svg");
 
   /* Carousel */
   --crl-display-max-height: 420px;
@@ -326,6 +327,11 @@ button.cg-btn:focus, input[type="submit"].cg-btn:focus, input[type="button"].cg-
   height: var(--im-xs);
 }
 
+.cg-ava.mod-ty {
+  width: var(--im-ty);
+  height: var(--im-ty);
+}
+
 /** BORDERED */
 .cg-ava.mod-bordered {
   border: 6px solid var(--cl-lighter-gray);
@@ -395,6 +401,13 @@ button.cg-btn:focus, input[type="submit"].cg-btn:focus, input[type="button"].cg-
 
 .cg-highlight.ic-select::after {
   background: var(--ic-select), var(--cl-highlight);
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cg-highlight.ic-select.mod-active::after {
+  background: var(--ic-select), var(--cl-highlight-active);
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
@@ -525,22 +538,29 @@ button.cg-btn:focus, input[type="submit"].cg-btn:focus, input[type="button"].cg-
 .cg-carousel {
   width: 100%;
   min-height: 200px; /** delete soon */
-  /* background-color: slateblue;  */
-  /* padding: 12px; */
+  display: block;
 }
 
 .cg-carousel > .carousel-display {
   margin-bottom: 8px;
 }
 
-.cg-carousel > .carousel-display > img {
+.cg-carousel > .carousel-display > * {
   box-sizing: border-box;
   width: 100%;
   max-height: var(--crl-display-max-height);
-  object-fit: contain;
-  background-color: var(--cl-white);
   border-radius: var(--border-radius-xs);
   border: 6px solid var(--cl-semi-white);
+}
+
+.cg-carousel > .carousel-display > img {
+  object-fit: contain;
+  background-color: var(--cl-white);
+}
+
+.cg-carousel > .carousel-display > div {
+  background-color: var(--cl-lighter-gray);
+  height: var(--crl-display-max-height);
 }
 
 .cg-carousel > .carousel-thumbnail-wrapper {

@@ -23,7 +23,7 @@
     </div>
     <!-- The circle thingy -->
     <img
-      :src="form.background" alt=""
+      :src="`/images/${form.background}`" alt=""
       style="
         width: 35%;
         object-fit: cover;

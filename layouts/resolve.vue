@@ -16,7 +16,7 @@
       <img 
         class="mb-4" 
         style="width:100%;" 
-        :src="displayImage" alt=""
+        :src="`/images/${displayImage}`" alt=""
       >
       <div style="padding: 0 36px;">
         <Nuxt />
